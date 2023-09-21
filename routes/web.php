@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+-----------------
+CATATAN TAMBAHAN
+-----------------
+- Gunakan Controller jika membutuhkan proses logika yang kompleks, misalnya mengambil data dari database, mengolah data, dan lain-lain.
+- Selain itu lebih baik langsung return saja view nya
+
+*/
+
+// Route yang mengarah ke halaman home
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home-page');
+
+// Route yang mengarah ke halaman login dengan nama login dan controller LoginController
+Route::get('/login', 'LoginController@index')->name('login-page');
+
+// Route yang mengarah ke halaman register dengan nama register dan controller RegisterController
+Route::get('/register', 'RegisterController@index')->name('register-page');
