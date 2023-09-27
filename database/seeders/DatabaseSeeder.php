@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Admin',
-            'email' => 'lampung@uxid.com',
+            'email' => 'lampung@uxid.org',
         ]);
     }
 }

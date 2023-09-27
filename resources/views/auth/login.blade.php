@@ -3,22 +3,43 @@
 @section('container')
 <div class="relative flex flex-col justify-center h-screen overflow-hidden">
     <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
-        <h1 class="text-3xl font-semibold text-center text-purple-700">DaisyUI</h1>
-        <form class="space-y-4">
+        <h1 class="text-3xl font-semibold text-center text-purple-700">UXiD Lampung</h1>
+        <form method="POST" action="login" class="space-y-4">
+            @csrf
             <div>
                 <label class="label">
                     <span class="text-base label-text">Email</span>
                 </label>
-                <input type="text" placeholder="Email Address" class="w-full input input-bordered input-primary" />
+                <div class="w-full 
+                @error('email')
+                tooltip tooltip-open tooltip-error text-error" 
+                @enderror
+                data-tip="@error('email') {{$message}} @enderror">
+                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email Address" class="w-full input input-bordered input-primary 
+                @error('email')
+                    border-red-500 
+                @enderror" />
+            </div>
+
             </div>
             <div>
                 <label class="label">
                     <span class="text-base label-text">Password</span>
                 </label>
-                <input type="password" placeholder="Enter Password"
-                    class="w-full input input-bordered input-primary" />
+                <div class="w-full 
+                @error('email')
+                tooltip tooltip-open tooltip-error text-error" 
+                @enderror
+                data-tip="@error('password') {{$message}} @enderror">
+                <input type="password" name="password" id="password" value="{{old('password')}}" placeholder="Enter Password"
+                    class="w-full input input-bordered input-primary
+                    @error('password')
+                    border-red-500 
+                @enderror" />
             </div>
-            <a href="#" class="text-xs text-gray-600 hover:underline hover:text-blue-600">Forget Password?</a>
+
+            </div>
+            <a href="{{route('register-page')}}" class="text-xs text-gray-600 hover:underline hover:text-blue-600">Don't have account yet?</a>
             <div>
                 <button class="btn btn-primary">Login</button>
             </div>
