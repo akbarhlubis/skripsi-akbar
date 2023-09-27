@@ -5,16 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Event Management System</title>
+    <title>UXiD Lampung</title>
     <script defer src="https://unpkg.com/alpinejs@latest/dist/cdn.min.js"></script>
-
-    <style>
-        /* Debugging CSS with outline red
-        * {
-            outline: 1px solid red;
-        }
-        */
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
