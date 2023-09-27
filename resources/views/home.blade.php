@@ -4,7 +4,7 @@
 {{-- merupakan relasi child dari yield milik main.blade.php --}}
 @section('container')
     {{-- Hero Section --}}
-    <div class="min-h-screen px-10 bg-white hero">
+    <div class="min-h-screen px-10 bg-white hero dark:bg-transparent">
         <div class="text-center hero-content">
             <div class="max-w-md">
                 <h1 class="text-5xl font-bold">UXiD Lampung</h1>

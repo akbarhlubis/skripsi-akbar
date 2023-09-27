@@ -12,7 +12,7 @@
             <a class="h-full truncate hover:text-gray-700 text-primary">{{$event->name}}</a>
         </div>
         <div
-            class="flex flex-col w-11/12 gap-2 mx-auto mt-5 overflow-hidden bg-white rounded-lg shadow-lg min-h-fit lg:flex-row">
+            class="flex flex-col w-11/12 gap-2 mx-auto mt-5 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 min-h-fit lg:flex-row">
             {{-- <img class="w-full bg-contain lg:w-1/2" src="https://pbs.twimg.com/media/FuegVVGaAAAyLGM?format=jpg&name=large" alt="#"> --}}
             <img class="w-full bg-contain lg:w-1/2"
                 src="https://s3-alpha.figma.com/hub/file/930641581/bdae5e30-5e25-481e-8c40-8000eec56cba-cover.png"
@@ -74,7 +74,8 @@
                     <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
                     <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
                     <h2 class="mt-2 mb-1 text-xl font-bold">Penutup</h2>
-                    <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla earum distinctio quos magni. Harum veniam in sunt, nam dolor voluptates nobis repellat odit cum ullam aut accusamus et, illo labore.</p>
+                    <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eum iste error numquam doloribus atque, et blanditiis corporis reprehenderit. Suscipit accusantium eaque nesciunt ullam. Ex similique distinctio, quaerat illum ipsum dolores dolorem blanditiis reprehenderit sit dicta pariatur enim dolor, praesentium quam! Dolorem nulla vitae provident commodi quae quidem, temporibus rerum!</p>
+                    <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui impedit aspernatur eveniet nostrum beatae ipsa.</p>
                 </body>
             </div>
         </div>
