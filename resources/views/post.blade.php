@@ -44,7 +44,7 @@
         <div class="flex flex-col w-11/12 gap-5 py-10 mx-auto lg:flex-row">
             {{-- Table of contents --}}
             <div class="w-full p-4 text-white rounded-md shadow-md top-2 lg:sticky h-fit lg:w-3/12 bg-primary">
-                <div class="text-lg font-bold">Table of Contents</div>
+                <div class="mb-1 text-lg font-bold">Table of Contents</div>
                 <div id="toc" class="text-sm list-none"></div>
             </div>
             {{-- Body dari post event --}}
@@ -65,14 +65,14 @@
                     <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
                         aliquam, fugit sit amet laborum nemo vitae voluptatum repudiandae delectus accusamus?</p>
                     <h2 class="mt-2 mb-1 text-xl font-bold">Contoh Lorem Ipsum</h2>
-                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
-                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
-                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
-                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
-                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
-                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
-                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
-                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">1 Lorem:</span> ipsum.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">2 Lorem:</span> ipsum.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">3 Lorem:</span> ipsum.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">4 Lorem:</span> ipsum.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">5 Lorem:</span> ipsum.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">6 Lorem:</span> ipsum.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">7 Lorem:</span> ipsum.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">8 Lorem:</span> ipsum.</h3>
                     <h2 class="mt-2 mb-1 text-xl font-bold">Penutup</h2>
                     <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eum iste error numquam doloribus atque, et blanditiis corporis reprehenderit. Suscipit accusantium eaque nesciunt ullam. Ex similique distinctio, quaerat illum ipsum dolores dolorem blanditiis reprehenderit sit dicta pariatur enim dolor, praesentium quam! Dolorem nulla vitae provident commodi quae quidem, temporibus rerum!</p>
                     <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui impedit aspernatur eveniet nostrum beatae ipsa.</p>
