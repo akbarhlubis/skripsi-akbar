@@ -65,14 +65,14 @@
                     <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
                         aliquam, fugit sit amet laborum nemo vitae voluptatum repudiandae delectus accusamus?</p>
                     <h2 class="mt-2 mb-1 text-xl font-bold">Contoh Lorem Ipsum</h2>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
+                    <h3 class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</h3>
                     <h2 class="mt-2 mb-1 text-xl font-bold">Penutup</h2>
                     <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eum iste error numquam doloribus atque, et blanditiis corporis reprehenderit. Suscipit accusantium eaque nesciunt ullam. Ex similique distinctio, quaerat illum ipsum dolores dolorem blanditiis reprehenderit sit dicta pariatur enim dolor, praesentium quam! Dolorem nulla vitae provident commodi quae quidem, temporibus rerum!</p>
                     <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui impedit aspernatur eveniet nostrum beatae ipsa.</p>
