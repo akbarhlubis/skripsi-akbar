@@ -38,6 +38,22 @@
                                 </div>
                             </div>
                         </dialog>
+                        <div class="flex flex-col gap-3 mt-2 md:grid-cols-3" x-data="{ url: window.location.href }">
+                            {{-- <div class="flex flex-row w-full">
+                                <input class="w-full" type="text" x-model="url" readonly disabled placeholder="Current URL" class="w-full p-2 border rounded">
+                                <button @click="copyToClipboard" class="p-2 ml-2 text-white bg-blue-500 rounded">Copy</button>
+                            </div> --}}
+                            <add-to-calendar-button
+                            name="{{$event->name}}"
+                            description="Play with me!"
+                            startDate="2023-10-07"
+                            startTime="10:15"
+                            endTime="17:45"
+                            timeZone="Asia/Jakarta"
+                            location="World Wide Web"
+                            options="'Google','iCal'"
+                            ></add-to-calendar-button>
+                        </div>
                 </div>
             </div>
         </div>
@@ -52,34 +68,51 @@
 
                 <body class="text-lg">
                     {{-- Comment this for a while --}}
-                    {{-- {{$event->body}} --}}
-
+                    {!! $event->body !!}
                     {{-- This is for testing --}}
-                    <h2 class="mb-1 text-xl font-bold">Pengertian Lorem Ipsum</h2>
-                    <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Reiciendis, similique. Distinctio sapiente, vitae odit atque expedita ratione temporibus minus
-                        exercitationem quis neque tenetur veritatis eos aperiam totam! Nesciunt, quibusdam illo?</p>
-                    <h2 class="mt-2 mb-1 text-xl font-bold">Perbedaan Lorem & Ipsum</h2>
-                    <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-                        facere fugiat animi vitae tempore totam repellat libero voluptate non ex!</p>
-                    <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                        aliquam, fugit sit amet laborum nemo vitae voluptatum repudiandae delectus accusamus?</p>
-                    <h2 class="mt-2 mb-1 text-xl font-bold">Contoh Lorem Ipsum</h2>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
-                    <h2 class="mt-2 mb-1 text-xl font-bold">Penutup</h2>
-                    <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eum iste error numquam doloribus atque, et blanditiis corporis reprehenderit. Suscipit accusantium eaque nesciunt ullam. Ex similique distinctio, quaerat illum ipsum dolores dolorem blanditiis reprehenderit sit dicta pariatur enim dolor, praesentium quam! Dolorem nulla vitae provident commodi quae quidem, temporibus rerum!</p>
-                    <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui impedit aspernatur eveniet nostrum beatae ipsa.</p>
+                    <div class="">
+                        {{-- <h2 class="mb-1 text-xl font-bold">Pengertian Lorem Ipsum</h2>
+                        <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Reiciendis, similique. Distinctio sapiente, vitae odit atque expedita ratione temporibus minus
+                            exercitationem quis neque tenetur veritatis eos aperiam totam! Nesciunt, quibusdam illo?</p>
+                        <h2 class="mt-2 mb-1 text-xl font-bold">Perbedaan Lorem & Ipsum</h2>
+                        <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+                            facere fugiat animi vitae tempore totam repellat libero voluptate non ex!</p>
+                        <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                            aliquam, fugit sit amet laborum nemo vitae voluptatum repudiandae delectus accusamus?</p>
+                        <h2 class="mt-2 mb-1 text-xl font-bold">Contoh Lorem Ipsum</h2>
+                        <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                        <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                        <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                        <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                        <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                        <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                        <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                        <p class="mt-1 text-sm md:text-base"><span class="font-bold">Lorem:</span> ipsum dolor sit amet.</p>
+                        <h2 class="mt-2 mb-1 text-xl font-bold">Penutup</h2>
+                        <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eum iste error numquam doloribus atque, et blanditiis corporis reprehenderit. Suscipit accusantium eaque nesciunt ullam. Ex similique distinctio, quaerat illum ipsum dolores dolorem blanditiis reprehenderit sit dicta pariatur enim dolor, praesentium quam! Dolorem nulla vitae provident commodi quae quidem, temporibus rerum!</p>
+                        <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui impedit aspernatur eveniet nostrum beatae ipsa.</p> --}}
+                    </div>
                 </body>
             </div>
         </div>
     </div>
     {{-- Memanggil resource dari kode javascript toc --}}
     @vite('resources/js/table-of-contents.js')
+
+    <script>
+        function copyTextToClipboard(text) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+        }
+
+        window.copyToClipboard = function() {
+            copyTextToClipboard(this.url);
+            alert("URL copied to clipboard: " + this.url);
+        }
+    </script>
 @endsection

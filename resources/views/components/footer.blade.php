@@ -10,13 +10,13 @@
                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/pwa-icon.png" class="w-7 md:w-8">
                     <div class="ml-3 text-left">
                         <p class='text-xs text-gray-200'>Let's install your PWA here</p>
-                        <p class="text-sm md:text-base"> PWA: UXiD Lampung </p>
+                        <p class="text-sm md:text-base"> PWA: SIMANEV UTI </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="flex flex-col items-center text-sm text-gray-400 mt-28 md:flex-row md:justify-between">
-            <p class="order-2 mt-8 md:order-1 md:mt-0"> &copy; UXiD Lampung, 2023. </p>
+            <p class="order-2 mt-8 md:order-1 md:mt-0"> &copy; SIMANEV UTI, 2023. </p>
             <div class="order-1 md:order-2">
                 <span class="px-2">About us</span>
                 <span class="px-2 border-l">Event</span>

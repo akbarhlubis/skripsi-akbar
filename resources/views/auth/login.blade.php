@@ -2,8 +2,8 @@
 
 @section('container')
 <div class="relative flex flex-col justify-center h-screen overflow-hidden">
-    <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
-        <h1 class="text-3xl font-semibold text-center text-purple-700">UXiD Lampung</h1>
+    <div class="w-full p-6 m-auto bg-white rounded-md shadow-md dark:text-white dark:bg-transparent lg:max-w-lg">
+        <h1 class="text-3xl font-semibold text-center">SIMANEV UTI</h1>
         <form method="POST" action="login" class="space-y-4">
             @csrf
             <div>

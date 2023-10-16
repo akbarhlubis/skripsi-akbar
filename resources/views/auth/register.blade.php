@@ -3,7 +3,7 @@
 @section('container')
 <div class="relative flex flex-col justify-center h-screen overflow-hidden">
     <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 class="text-3xl font-semibold text-center text-purple-700">UXiD Lampung</h1>
+        <h1 class="text-3xl font-semibold text-center text-purple-700">SIMANEV UTI</h1>
         <form action="/auth/register" method="POST" x-data="{
             formStep: 1,
             name: '',
