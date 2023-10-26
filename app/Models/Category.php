@@ -14,4 +14,10 @@ class Category extends Model
         'slug',
         'image',
     ];
+
+    // Create relationship with Event
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

@@ -6,7 +6,10 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script defer src="https://unpkg.com/alpinejs@latest/dist/cdn.min.js"></script>
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>{{$title ?? config('app.name')}} | Admin </title>
 </head>
@@ -35,10 +38,14 @@
                 <div class="dropdown dropdown-end">
                     <div tabindex="0" class="flex flex-row items-center gap-2">
                         <label tabindex="0" class="text-slate-900">{{auth()->user()->name}}</label>
-                        <img class="object-fill rounded-full outline outline-1 outline-white w-7" src="https://avatars.githubusercontent.com/u/73776051?v=4" alt="">
+                        @if (Auth()->user()->avatar)
+                        <img class="object-fill rounded-full outline outline-1 outline-white w-7" src="{{ asset('images/' . Auth()->user()->avatar) }}" alt="{{ Auth()->user()->name }}">
+                        @else
+                        <img class="object-fill rounded-full outline outline-1 outline-white w-7" src="{{ asset('default-avatar.png') }}" alt="" srcset="">
+                        @endif
                     </div>
                     <ul tabindex="0" class="dropdown-content mt-6 z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Akun Saya</a></li>
+                        <li><a href="{{route('profile-page')}}">Akun Saya</a></li>
                         <li><a href="{{route('home-page')}}">Halaman Utama</a></li>
                     </ul>
                 </div>
@@ -48,10 +55,5 @@
             </div>
         </div>
     </div>
-
-
 </body>
-
-<script src="https://cdn.quilljs.com/1.3.6/quill.js" defer></script>
-<script src="https://unpkg.com/quill-paste-smart@latest/dist/quill-paste-smart.js" defer></script>
 </html>

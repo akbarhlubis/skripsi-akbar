@@ -3,8 +3,8 @@
 @section('container')
 <div class="relative flex flex-col justify-center h-screen overflow-hidden">
     <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 class="text-3xl font-semibold text-center text-purple-700">SIMANEV UTI</h1>
-        <form action="/auth/register" method="POST" x-data="{
+        <h1 class="text-3xl font-black text-center uppercase text-primary">Selamat datang di halaman Login</h1>
+        <form id="FormRegister" action="/auth/register" method="POST" x-data="{
             formStep: 1,
             name: '',
             email: '',
@@ -52,53 +52,62 @@
                 <label class="label">
                     <span class="text-base label-text">Name</span>
                 </label>
-                <input type="text" required x-model="name" placeholder="name" name="name" id="name" class="w-full input input-bordered input-primary @error('name')
-                    outline-none ring-2 ring-red-500
+                <input type="text" required x-model="name" placeholder="Nama Lengkap" name="name" id="name" class="w-full input input-bordered input-primary @error('name')
+                    outline-none ring-2 ring-primary
                 @enderror" />
-                <label class="font-bold text-red-500 form-label" for="name" x-text="errors.name"></label>
+                <label class="font-bold text-primary form-label" for="name" x-text="errors.name"></label>
             </div>
             <div x-cloak x-show="formStep === 2">
                 <label class="label">
                     <span class="text-base label-text">Email</span>
                 </label>
-                <input type="email" placeholder="Email Address" x-model="email" name="email" id="email" class="w-full input input-bordered input-primary" />
-                <label class="font-bold text-red-500 form-label" for="email" x-text="errors.email"></label>
+                <input type="email" placeholder="alamat@email.com" x-model="email" name="email" id="email" class="w-full input input-bordered input-primary" />
+                <label class="font-bold text-primary form-label" for="email" x-text="errors.email"></label>
             </div>
             <div x-cloak x-show="formStep === 3">
                 <label class="label">
                     <span class="text-base label-text">Password</span>
                 </label>
-                <input type="password" name="password" x-model="password" id="password" placeholder="Enter Password" class="w-full input input-bordered input-primary" />
+                <input type="password" name="password" x-model="password" id="password" placeholder="Masukan password" class="w-full input input-bordered input-primary" />
                 <label class="form-label" for="password" x-text="errors.password"></label>
             </div>
             {{-- Button Back with Alpine JS --}}
-            <button 
-            x-cloak 
-            x-show="formStep > 1" 
-            @click="formStep -= 1" 
-            type="button" 
-            class="btn btn-block btn-secondary">
-            Back</button>
-            
-            {{-- Button Next with Alpine JS --}}
-            <button
-            x-cloak
-            x-show="formStep < 3"
-            @click="if (validateForm()) { formStep += 1 }"
-            type="button"
-            class="btn btn-block btn-primary">
-            Next Step</button>
-
-            
-            <div x-cloak x-show="formStep === 3">
-                <div>
-                    <button class="btn btn-block btn-primary" type="submit">Register</button>
-                </div>
-                <span>Already have an account ?
-                    <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Login</a>
-                </span>
+            <div class="flex gap-2">
+                <button 
+                x-cloak 
+                x-show="formStep > 1" 
+                @click="formStep -= 1" 
+                type="button" 
+                class="btn btn-outline">
+                Back</button>
+                
+                {{-- Button Next with Alpine JS --}}
+                <button
+                x-cloak
+                x-show="formStep < 3"
+                @click="if (validateForm()) { formStep += 1 }"
+                type="button"
+                class="w-full py-3 text-white rounded-md bg-primary">
+                Next Step</button>
+                
+                <button 
+                x-cloak x-show="formStep === 3"
+                class="w-full py-3 text-white rounded-md bg-primary" 
+                type="submit">
+                Register</button>
             </div>
+            <span class="pt-2">Sudah punya akun?
+                <a href="#" class="text-primary hover:text-primary-focus hover:underline">Login disini</a>
+            </span>
         </form>
     </div>
 </div>
+<script>
+      const form = document.getElementById('FormRegister');
+  form.addEventListener('keypress', function(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+    }
+  });
+</script>
 @endsection

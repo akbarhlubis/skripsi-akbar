@@ -6,11 +6,15 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MyEventController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Event;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Routing\RouteGroup;
 use App\Models\Category;
+use App\Models\Registration;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,11 +35,18 @@ CATATAN TAMBAHAN
 
 */
 
+// Route yang mengarah ke halaman test
+Route::get('/test', function () {
+    return view('test');
+})->name('test-page');
+
 // Route yang mengarah ke halaman home
 Route::get('/', function () {
     return view('home', [
         // Limit only 3 events
-        'events' => Event::latest()->limit(3)->get()
+        'events' => Event::latest()->limit(3)->get(),
+        'categories' => Category::latest()->limit(6)->get(),
+        'registrations' => Registration::latest()->limit(6)->get(),
     ]);
 })->name('home-page');
 
@@ -70,9 +81,14 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Route yang mengarah ke halaman event saya
     Route::prefix('user')->group(function(){
-        Route::get('/my-events', function () {
-            return view('my-events');
-        })->name('my-events-page');
+        Route::get('/my-events', MyEventController::class)->name('my-events-page');
+
+        // Route yang mengarah ke halaman profile saya dengan controller ProfileController
+        Route::get('/profile',[ProfileController::class,'index'])->name('profile-page');
+        // Route yang update profile saya dengan controller ProfileController
+        Route::put('/profile/{user}',[ProfileController::class,'update'])->name('profile.update');
+        // Route yang menghapus akun
+        Route::delete('/profile/{user}',[ProfileController::class,'delete'])->name('profile.delete');
     });
 
     // Route yang mengarah ke halaman admin dashboard menggunakan prefix admin
@@ -84,14 +100,17 @@ Route::group(['middleware' => ['auth']], function () {
         // Route yang mengarah ke halaman event
         Route::group(['prefix' => 'events', 'as' => 'event.'], function () {
             
+            Route::get('/create', [EventController::class, 'create'])->name('create');
+            Route::post('/', [EventController::class, 'store'])->name('store');
             Route::delete('/{event}', [EventController::class, 'destroy'])->name('destroy');
             Route::get('/', [EventController::class, 'index'])->name('index');
             Route::get('/{event}/edit', [EventController::class, 'edit'])->name('edit');
+            Route::get('/{event}/status', [EventController::class, 'status'])->name('status');
+            // create route for users is create and store
+            // Show event by id
+            Route::get('/{event}', [EventController::class, 'show'])->name('show');
             Route::put('/{event}', [EventController::class, 'update'])->name('update');
             
-            // create route for users is create and store
-            Route::get('/create', [EventController::class, 'create'])->name('create');
-            Route::post('/', [EventController::class, 'store'])->name('store');
             
             // route for search
             Route::get('/search', [EventController::class, 'search'])->name('search');
@@ -100,10 +119,10 @@ Route::group(['middleware' => ['auth']], function () {
         // Route yang mengarah ke halaman category
         Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {
             
-            Route::delete('/{event}', [CategoryController::class, 'destroy'])->name('destroy');
+            Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('destroy');
             Route::get('/', [CategoryController::class, 'index'])->name('index');
-            Route::get('/{event}/edit', [CategoryController::class, 'edit'])->name('edit');
-            Route::put('/{event}', [CategoryController::class, 'update'])->name('update');
+            Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('edit');
+            Route::put('/{category}', [CategoryController::class, 'update'])->name('update');
             
             // create route for users is create and store
             Route::get('/create', [CategoryController::class, 'create'])->name('create');

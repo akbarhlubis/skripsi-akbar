@@ -17,7 +17,7 @@
                 data-tip="@error('email') {{$message}} @enderror">
                 <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email Address" class="w-full input input-bordered input-primary 
                 @error('email')
-                    border-red-500 
+                    border-error
                 @enderror" />
             </div>
 
@@ -27,14 +27,14 @@
                     <span class="text-base label-text">Password</span>
                 </label>
                 <div class="w-full 
-                @error('email')
+                @error('password')
                 tooltip tooltip-open tooltip-error text-error" 
                 @enderror
                 data-tip="@error('password') {{$message}} @enderror">
                 <input type="password" name="password" id="password" value="{{old('password')}}" placeholder="Enter Password"
                     class="w-full input input-bordered input-primary
                     @error('password')
-                    border-red-500 
+                    border-error 
                 @enderror" />
             </div>
 

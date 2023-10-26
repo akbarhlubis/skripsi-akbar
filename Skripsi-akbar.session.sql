@@ -1,2 +1,5 @@
 -- Melihat seluru data pada tabel tabel user
-SELECT * FROM categories;
+SELECT * FROM users;
+
+-- Melihat seluru data pada tabel tabel events
+SELECT * FROM events;

@@ -70,11 +70,11 @@
                                     </td>
                                         <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
                                             {{-- <a href="{{ route('category.edit', $category) }}" class="text-blue-600 hover:text-blue-900">Edit</a> --}}
-                                            {{-- <form action="{{ route('category.destroy', $category) }}" method="POST">
+                                            <form action="{{ route('category.destroy', $category) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
-                                            </form> --}}
+                                            </form>
                                         </td>
                                 </tr>
                             @endforeach

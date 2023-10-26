@@ -33,6 +33,10 @@
                                 </th>
                                 <th class="px-6 py-3 text-left bg-gray-50">
                                     <span
+                                        class="text-xs font-medium leading-4 tracking-wider text-gray-500 uppercase">Status</span>
+                                </th>
+                                <th class="px-6 py-3 text-left bg-gray-50">
+                                    <span
                                         class="text-xs font-medium leading-4 tracking-wider text-gray-500 uppercase">Tombol Aksi</span>
                                 </th>
                             </tr>
@@ -50,8 +54,14 @@
                                     <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
                                         {{ $event->created_at }}
                                     </td>
+                                    <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
+                                        <a href="{{ route('event.status', $event) }}" class="p-2 rounded-md {{$event->is_published ? 'text-green-500 bg-green-100' : 'text-red-500 bg-red-100'}}">
+                                            {{ $event->is_published ? 'Published' : 'Draft' }}
+                                        </a>
+                                    </td>
                                         <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
                                             <a href="{{ route('event.edit', $event) }}" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                            <a href="{{ route('event.show', $event) }}" class="text-blue-600 hover:text-blue-900">Lihat</a>
                                             <form action="{{ route('event.destroy', $event) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')

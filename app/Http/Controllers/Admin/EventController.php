@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 
 class EventController extends Controller
 {
@@ -27,8 +28,9 @@ class EventController extends Controller
      */
     public function create()
     {
+        $event = Event::get();
         $categories = Category::get();
-        return view('admin.event.create', compact('categories'));
+        return view('admin.event.create', compact('categories','event'));
     }
 
     /**
@@ -36,14 +38,29 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required',
             'description' => ['required', 'min:10'],
             'body' => ['required', 'min:10'],
+            'start_date' => 'required',
+            'end_date' => 'required',
             'slug' => ['required', 'unique:events'],
+            'image' => ['image', 'max:2048'],
+            'category_id' => 'required',
+            'link' => 'max:500',
+            'embed' => 'max:500',
+            'quota' => 'required|numeric',
         ]);
 
-        Event::create($request->all());
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('event-images');
+        }
+
+        // mengirim id data user yang sedang login
+        $validatedData['user_id'] = auth()->user()->id;
+        // $request->file('image')->store('event-images');
+
+        Event::create($validatedData);
 
         return redirect()->route('event.index')
             ->with('success', 'Event created successfully.');
@@ -54,7 +71,9 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        // show user who have registered to event with id
+        $registrations = $event->registrations()->with((['user', 'event']))->paginate(10);
+        return view('admin.event.show', compact('event', 'registrations'));
     }
 
     /**
@@ -62,7 +81,8 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('admin.event.edit', compact('event'));
+        $categories = Category::all();
+        return view('admin.event.edit', compact('categories', 'event'));
     }
 
     /**
@@ -104,5 +124,18 @@ class EventController extends Controller
         $search = $request->search;
         $events = Event::where('name', 'like', "%" . $search . "%")->paginate(15);
         return view('admin.event.index', compact('events'));
+    }
+
+    public function status (Event $event)
+    {
+        // mengecek kondisi apakah event sudah di publish atau belum
+        if ($event->is_published == 1) {
+            $event->is_published = 0;
+        } else {
+            $event->is_published = 1;
+        }
+        $event->save();
+
+        return back()->with('success', 'Event status updated successfully.');
     }
 }

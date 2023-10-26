@@ -17,7 +17,16 @@ return new class extends Migration
             $table->string('description');
             $table->text('body');
             $table->string('slug')->unique();
+            $table->string('image')->nullable();
+            $table->string('link')->nullable();
+            $table->string('embed')->nullable();
+            $table->integer('quota')->nullable()->default(0);
+            $table->boolean('is_published')->default(false);
+            $table->boolean('is_online')->default(false);
             $table->timestamp('published_at')->nullable();
+            // start_date and end_date
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
     }

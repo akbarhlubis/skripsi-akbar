@@ -19,7 +19,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="dark:bg-slate-950 dark:text-white">
     @include('components.navbar')
     @include('sweetalert::alert')
     {{-- Ini untuk Komponen Navigasi --}}
@@ -28,6 +28,8 @@
         @yield('container')
     </div>
     @include('components.footer')
+    <a href="#" class="fixed bottom-0 right-0 z-50 mb-24 mr-4 text-white md:mb-6">
+        <i class="p-4 rounded-full bi bi-chevron-double-up bg-primary hover:bg-red-400"></i>
+    </a>
 </body>
-
 </html>

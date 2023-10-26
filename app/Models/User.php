@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -42,4 +43,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Create relationship with Event
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    // Create relationship with Registration
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
 }
