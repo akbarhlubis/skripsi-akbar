@@ -85,7 +85,7 @@
             {{-- Body dari post event --}}
             <div class="w-fit">
 
-                <body>
+                <div class="post-content">
                     {{-- Comment this for a while --}}
                     {!! $event->body !!}
                     {{-- This is for testing --}}
@@ -112,7 +112,7 @@
                         <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eum iste error numquam doloribus atque, et blanditiis corporis reprehenderit. Suscipit accusantium eaque nesciunt ullam. Ex similique distinctio, quaerat illum ipsum dolores dolorem blanditiis reprehenderit sit dicta pariatur enim dolor, praesentium quam! Dolorem nulla vitae provident commodi quae quidem, temporibus rerum!</p>
                         <p class="mt-1 text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui impedit aspernatur eveniet nostrum beatae ipsa.</p> --}}
                     </div>
-                </body>
+                </div>
             </div>
         </div>
     </div>

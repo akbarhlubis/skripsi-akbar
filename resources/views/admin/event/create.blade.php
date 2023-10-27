@@ -64,7 +64,7 @@
 
                         <label for="body">
                             <input id="Body" type="hidden" name="body" value="{{ old('body') }}">
-                            <trix-editor input="Body"></trix-editor>
+                            <trix-editor class="trix-editor" input="Body"></trix-editor>
                         </label>
 
                         <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-lg">Tambah</button>
