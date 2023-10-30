@@ -8,6 +8,7 @@
     <title>Event Management System | UTI</title>
     <script defer src="https://unpkg.com/alpinejs@latest/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         /* Debugging CSS with outline red

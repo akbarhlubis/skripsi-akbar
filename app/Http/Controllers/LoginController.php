@@ -29,7 +29,8 @@ class LoginController extends Controller
         }
 
         // PERCOBAAN [6 or END] - Jika kondisi diatas tidak dapat dilewati maka akan menampilkan ERROR
-        return back()->with('loginError','Login failed');
+        return back() // redirect to homepage
+        ->with('failed', 'Gagal Login!'); 
 
         // PERCOBAAN [START] - debugging untuk mengetahui apakah data sudah terkirim atau belum dengan dd
         // dd('Berhasil Login');

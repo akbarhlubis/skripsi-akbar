@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             "slug"=> "bootcamp",
         ]);
         Event::factory(10)->create();
-        Registration::factory(1000)->create();
+        // Registration::factory(1000)->create();
 
         User::factory()->create([
             'name' => 'Admin',

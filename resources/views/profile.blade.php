@@ -34,11 +34,16 @@
                         </div>
                         <div>
                             <button type="submit" class="rounded-md btn-primary btn">{{ __('Update User') }}</button>
-                            <a class="btn btn-error" href="{{route('profile.delete',Auth()->id())}}">Delete Akun</a>
                         </div>
                     </form>
                 </div>
             </div>
+            <form class="w-full mt-2" action="{{ route('profile.destroy', auth()->id()) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit"
+                    class="btn btn-warning">Delete</button>
+            </form>
         </div>
     </div>
 </div>

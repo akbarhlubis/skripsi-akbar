@@ -6,7 +6,7 @@
         <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
                 <h2 class="mb-4 text-2xl font-semibold">Edit Event</h2>
-                <form action="{{ route('event.update',$event) }}" class="" method="POST">
+                <form action="{{ route('event.update',$event) }}" class="" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <label for="name" class="block">Nama Event</label>
@@ -31,7 +31,7 @@
                     
                     <label for="body">
                         <input id="Body" type="hidden" name="body" value="{{old('body',$event->body)}}" >
-                        <trix-editor input="Body"></trix-editor>
+                        <trix-editor class="trix-editor" input="Body"></trix-editor>
                     </label>
 
                     <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-lg">Tambah</button>
@@ -40,5 +40,6 @@
         </div>
     </div>
 </div>
+@vite('resources/js/additional-post-script.js')
 
 @endsection

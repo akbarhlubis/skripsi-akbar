@@ -3,7 +3,7 @@
         outline: red solid 1px
     }
 </style> --}}
-<aside class="hidden gap-2 pt-10 overflow-y-auto bg-white shadow-lg w-52 md:block">
+<aside class="hidden gap-2 pt-10 overflow-y-auto shadow-lg w-52 md:block">
     <div class="flex flex-col items-center gap-2 py-10 text-center border-b-2 h-fit">
         @if (Auth()->user()->avatar)
         <img class="object-cover w-20 h-20 rounded-full" src="{{ asset('images/' . Auth()->user()->avatar) }}" alt="">

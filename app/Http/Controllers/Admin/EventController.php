@@ -118,12 +118,7 @@ class EventController extends Controller
      */
     public function search(Request $request)
     {
-        $request->validate([
-            'search' => 'required'
-        ]);
-        $search = $request->search;
-        $events = Event::where('name', 'like', "%" . $search . "%")->paginate(15);
-        return view('admin.event.index', compact('events'));
+        
     }
 
     public function status (Event $event)

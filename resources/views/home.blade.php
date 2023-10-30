@@ -9,7 +9,7 @@
         <div class="flex flex-col w-full gap-2 md:w-1/2 left-hero">
             <h1 class="font-black text-primary text-7xl">Halo,</h1>
             <p class="text-2xl font-medium">Selamat datang di portal Kegiatan Kemahasiswaan Universitas Teknokrat Indonesia.</p>
-            <a class="px-4 py-2 text-white rounded-md bg-primary w-fit" href="{{route('posts-page')}}">Lihat semua kegiatan</a>
+            <a class="text-white btn btn-primary w-fit" href="{{route('posts-page')}}">Lihat semua kegiatan</a>
         </div>
         <div class="hidden w-1/2 md:block right-hero gradient-mask-l-90">
             <div class="overflow-hidden rounded-md gradient-mask-r-90">
@@ -28,7 +28,7 @@
     </div>
 
     {{-- Statistic Section --}}
-    <div class="container flex justify-around w-full mx-auto my-6 text-white rounded-md shadow-lg md:w-2/3 bg-primary h-2/4">
+    <div class="container flex justify-around w-full mx-auto my-6 text-white rounded-md shadow-lg select-none md:w-2/3 bg-primary h-2/4">
         <div class="py-6 text-base font-semibold transition-all md:text-lg hover:scale-110">
             {{ $events->count() }}+ Event
         </div>

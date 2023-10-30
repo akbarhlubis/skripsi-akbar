@@ -39,9 +39,9 @@
                     <li><a href="{{ route('my-events-page') }}">My Events</a></li>
                     <li><a href="{{ route('admin-dashboard-page') }}">Dashboard Admin</a></li>
                     <li>
-                        <form class="" action="{{ route('logout') }}" method="POST">
+                        <form class="w-full" action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit">Logout</button>
+                            <button class="block w-full" type="submit">Logout</button>
                         </form>
                     </li>
                 </ul>

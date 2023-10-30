@@ -1,4 +1,4 @@
-<div class="transition-all bg-white bg-opacity-50 shadow-lg card hover:scale-105 hover:bg-opacity-40">
+<div class="transition-all bg-white bg-opacity-50 hover:shadow-lg card hover:scale-105 hover:bg-opacity-40">
     <figure>
         @if ($event->image)
         <img src="{{ asset('storage/' . $event->image) }}" class="object-cover w-full h-48" alt="">

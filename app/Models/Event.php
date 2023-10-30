@@ -43,4 +43,10 @@ class Event extends Model
     {
         return $this->hasMany(Registration::class);
     }
+
+    // create scope for published
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
+    }
 }

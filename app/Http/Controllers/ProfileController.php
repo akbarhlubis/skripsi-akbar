@@ -23,7 +23,7 @@ class ProfileController extends Controller
             'name' => 'required',
             'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
             'password' => 'nullable|min:8',
-            'avatar' => 'nullable|image|max:2048',
+            'avatar' => 'nullable|image|mimes:jpeg,png|max:2048',
         ]);
 
         if ($request->avatar) {
@@ -45,13 +45,15 @@ class ProfileController extends Controller
         return back()->with('success', 'User updated successfully.');
     }
 
-    protected function delete(User $user)
+    protected function destroy(User $user)
     {
-        $user->delete();
+        $user->delete(); // delete user
 
-        return redirect()
-            ->route('home-page')
-            ->with('success', 'User deleted successfully.');
+        auth()->logout(); // logout user
+
+        return redirect() // redirect to homepage
+            ->route('home-page') // with success message
+            ->with('success', 'Your account has been deleted!'); // that account has been deleted
     }
 
     protected function deleteOldImage()

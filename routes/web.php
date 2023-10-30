@@ -11,6 +11,7 @@ use App\Http\Controllers\RegisterController;
 use App\Models\Event;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RsvpController;
 use Illuminate\Routing\RouteGroup;
 use App\Models\Category;
 use App\Models\Registration;
@@ -44,7 +45,7 @@ Route::get('/test', function () {
 Route::get('/', function () {
     return view('home', [
         // Limit only 3 events
-        'events' => Event::latest()->limit(3)->get(),
+        'events' => Event::published()->latest()->limit(3)->get(),
         'categories' => Category::latest()->limit(6)->get(),
         'registrations' => Registration::latest()->limit(6)->get(),
     ]);
@@ -75,7 +76,11 @@ Route::prefix('auth')->group(function () {
 Route::get('posts', [PostController::class, 'index'])->name('posts-page');
 // Route yang mengarah ke halaman post event dengan id post dan controller PostController
 Route::get('posts/{id}', [PostController::class, 'show'])->name('post-page');
-
+Route::get('/events-rsvp/{id}', RsvpController::class)->name('rsvp')->middleware('auth');
+// route for scan barcode
+Route::get('/scan', function () {
+    return view('scan');
+})->name('scan-page')->middleware('auth');
 // Group route yang membutuhkan auth
 Route::group(['middleware' => ['auth']], function () {
 
@@ -88,7 +93,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Route yang update profile saya dengan controller ProfileController
         Route::put('/profile/{user}',[ProfileController::class,'update'])->name('profile.update');
         // Route yang menghapus akun
-        Route::delete('/profile/{user}',[ProfileController::class,'delete'])->name('profile.delete');
+        Route::delete('/profile/{user}',[ProfileController::class,'destroy'])->name('profile.destroy');
     });
 
     // Route yang mengarah ke halaman admin dashboard menggunakan prefix admin

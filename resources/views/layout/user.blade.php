@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <title>Event Management System | UTI</title>
 </head>
-<body>
+<body class="dark:bg-slate-950 dark:text-white">
   @include('components.navbar')
   @include('sweetalert::alert')
 <div class="flex flex-col h-screen">
