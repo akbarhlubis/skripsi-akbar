@@ -37,4 +37,13 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    /**
+     * Summary of admin
+     * @return \Database\Factories\UserFactory
+     */
+    public function user(): UserFactory
+    {
+        return $this->assignRole('user');
+    }
 }

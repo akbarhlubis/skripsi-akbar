@@ -52,7 +52,11 @@
                                         {{ $user->email }}
                                     </td>
                                     <td class="px-6 py-4 text-sm leading-5 text-gray-900 truncate whitespace-no-wrap">
-                                        {{ $user->npm }}
+                                        @forelse ($user->roles as $role)
+                                        {{ $role->name }}
+                                        @empty
+                                        <span class="text-red-500">No Role</span>
+                                        @endforelse
                                     </td>
                                     {{-- <td class="px-6 py-4 text-sm leading-5 text-gray-900 truncate whitespace-no-wrap">
                                         {{ $user->jurusan }}

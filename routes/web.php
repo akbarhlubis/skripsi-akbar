@@ -97,7 +97,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Route yang mengarah ke halaman admin dashboard menggunakan prefix admin
-    Route::prefix('admin')->group(function(){
+    Route::prefix('admin')->middleware('role:admin')->group(function(){
         
         // Route yang mengarah ke halaman dashboard
         Route::get('/', DashboardController::class)->name('admin-dashboard-page');

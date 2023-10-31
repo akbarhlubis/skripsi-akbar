@@ -9,6 +9,7 @@ use App\Models\Event;
 use Illuminate\View\View;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -66,11 +67,16 @@ class UserController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        User::create([
+        $role = Role::where('name', 'user')->first();
+
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->assignRole($role);
+
         return redirect()->route('users.index')
             ->with('success', 'User created successfully.');
     }

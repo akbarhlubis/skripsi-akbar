@@ -37,7 +37,9 @@
                         </a>
                     </li>
                     <li><a href="{{ route('my-events-page') }}">My Events</a></li>
+                    @role('admin')
                     <li><a href="{{ route('admin-dashboard-page') }}">Dashboard Admin</a></li>
+                    @endrole
                     <li>
                         <form class="w-full" action="{{ route('logout') }}" method="POST">
                             @csrf
