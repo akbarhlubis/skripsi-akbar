@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -21,7 +22,12 @@ class RegisterController extends Controller
         'password'=>'required|min:5|max:255' 
     ]);
 
-    User::create($validatedData);
+    $role = Role::where('name', 'user')->first();
+
+    $user = User::create($validatedData);
+
+    $user->assignRole($role);
+
     return redirect('auth/login')->with('Success','Successfully to registration');
 
     }

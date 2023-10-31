@@ -1,6 +1,6 @@
 // decalre variables
 var toc = document.querySelector('#toc');
-var headlines = Array.from(document.querySelectorAll('h2,h3'));
+var headlines = Array.from(document.querySelectorAll('.post-content h1,.post-content h2,.post-content h3'));
 
 // loop through headlines and add id to each
 headlines.forEach((item, index) => {

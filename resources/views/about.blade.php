@@ -3,13 +3,13 @@
 
 {{-- Section digunakan untuk mengisi konten dari layout/main.blade.php --}}
 @section('container')
-{{-- Halaman about tentang komunitas UXiD Lampung --}}
-<div class="container mx-auto">
-    <div class="flex flex-col justify-center h-screen">
-        <div class="flex flex-col items-center justify-center">
-            <h1 class="text-3xl font-semibold text-center text-purple-700">UXiD Lampung</h1>
-            <p class="text-center">UXiD Lampung adalah komunitas yang bergerak di bidang User Experience Design yang berada di Lampung. Komunitas ini berdiri pada tanggal 1 Januari 2021.</p>
-        </div>
+{{-- Halaman about tentang komunitas SIMANEV UTI --}}
+<div class="container pt-24 mx-auto">
+    <div class="h-screen">
+        <h1 class="text-3xl font-semibold text-center text-primary">SIMANEV UTI</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum atque illum sed nam quia possimus consequatur itaque debitis? Exercitationem, distinctio.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, fugiat!</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid voluptatibus nemo incidunt voluptatum quos at exercitationem molestias est laborum, dicta natus aperiam soluta nobis esse, illum perferendis! Possimus, voluptatem quas?</p>
     </div>
 </div>
 @endsection

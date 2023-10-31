@@ -2,8 +2,8 @@
 
 @section('container')
 <div class="relative flex flex-col justify-center h-screen overflow-hidden">
-    <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
-        <h1 class="text-3xl font-semibold text-center text-purple-700">UXiD Lampung</h1>
+    <div class="w-full p-6 m-auto bg-white rounded-md shadow-md dark:text-white dark:bg-transparent lg:max-w-lg">
+        <h1 class="text-3xl font-semibold text-center">SIMANEV UTI</h1>
         <form method="POST" action="login" class="space-y-4">
             @csrf
             <div>
@@ -17,7 +17,7 @@
                 data-tip="@error('email') {{$message}} @enderror">
                 <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email Address" class="w-full input input-bordered input-primary 
                 @error('email')
-                    border-red-500 
+                    border-error
                 @enderror" />
             </div>
 
@@ -27,14 +27,14 @@
                     <span class="text-base label-text">Password</span>
                 </label>
                 <div class="w-full 
-                @error('email')
+                @error('password')
                 tooltip tooltip-open tooltip-error text-error" 
                 @enderror
                 data-tip="@error('password') {{$message}} @enderror">
                 <input type="password" name="password" id="password" value="{{old('password')}}" placeholder="Enter Password"
                     class="w-full input input-bordered input-primary
                     @error('password')
-                    border-red-500 
+                    border-error 
                 @enderror" />
             </div>
 

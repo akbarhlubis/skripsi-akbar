@@ -24,12 +24,18 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // PERCOBAAN [4] - Tampungan data $request diarahkan ke session lalu di regenerate 
             $request->session()->regenerate();
-            // PERCOBAAN [5] - Setelah itu diarahkan ke url (/)
-            return redirect()->intended('/');
+
+            // PERCOBAAN [5.1] - Setelah itu diarahkan ke Homepage
+            if (Auth::user()->hasRole('admin')) {
+                return redirect()->route('admin-dashboard-page');
+            } else {
+                return redirect()->route('home-page');
+            }
         }
 
         // PERCOBAAN [6 or END] - Jika kondisi diatas tidak dapat dilewati maka akan menampilkan ERROR
-        return back()->with('loginError','Login failed');
+        return back() // redirect to homepage
+        ->with('failed', 'Gagal Login!'); 
 
         // PERCOBAAN [START] - debugging untuk mengetahui apakah data sudah terkirim atau belum dengan dd
         // dd('Berhasil Login');

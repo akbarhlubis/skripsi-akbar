@@ -3,10 +3,10 @@
 
 @section('container')
     {{-- List of event posts with search bar and title --}}
-    <div class="container px-10 mx-auto mt-10">
+    <div class="container px-10 pt-20 mx-auto">
         <div class="text-center">
-            <h2 class="text-3xl font-bold">Event UXiD Lampung</h2>
-            <p class="py-6">Berikut merupakan event yang akan diadakan oleh UXiD Lampung</p>
+            <h2 class="text-3xl font-bold">Event SIMANEV UTI</h2>
+            <p class="py-6">Berikut merupakan event yang akan diadakan oleh SIMANEV UTI</p>
         </div>
         <div class="flex flex-col gap-5">
             <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
