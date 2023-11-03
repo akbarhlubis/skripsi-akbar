@@ -39,8 +39,12 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        return view('post', [
-            'event' => Event::findOrFail($id)
+        $event = Event::findOrFail($id);
+        $registrations = $event->registrations()->with((['user', 'event']))->count();
+
+        return view('post')->with([
+            'event' => $event,
+            'registrations' => $registrations
         ]);
     }
 
@@ -66,5 +70,26 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * Search the specified resource from storage.
+     */
+    public function search(Request $request){
+        $search = $request->input('search');
+        $events = Event::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('description', 'LIKE', "%{$search}%")
+            ->orWhere('body', 'LIKE', "%{$search}%")
+            ->orWhere('link', 'LIKE', "%{$search}%")
+            ->orWhere('embed', 'LIKE', "%{$search}%")
+            ->orWhere('start_date', 'LIKE', "%{$search}%")
+            ->orWhere('end_date', 'LIKE', "%{$search}%")
+            ->orWhere('slug', 'LIKE', "%{$search}%")
+            ->orWhere('category_id', 'LIKE', "%{$search}%")
+            ->orWhere('user_id', 'LIKE', "%{$search}%")
+            ->orWhere('is_published', 'LIKE', "%{$search}%")
+            ->paginate(6);
+        return view('posts', compact('events'));
     }
 }

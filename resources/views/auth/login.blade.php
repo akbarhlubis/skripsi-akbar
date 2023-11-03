@@ -15,7 +15,7 @@
                 tooltip tooltip-open tooltip-error text-error" 
                 @enderror
                 data-tip="@error('email') {{$message}} @enderror">
-                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email Address" class="w-full input input-bordered input-primary 
+                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email Address" class="w-full input input-bordered 
                 @error('email')
                     border-error
                 @enderror" />
@@ -32,16 +32,17 @@
                 @enderror
                 data-tip="@error('password') {{$message}} @enderror">
                 <input type="password" name="password" id="password" value="{{old('password')}}" placeholder="Enter Password"
-                    class="w-full input input-bordered input-primary
+                    class="w-full input input-bordered
                     @error('password')
                     border-error 
                 @enderror" />
             </div>
 
             </div>
-            <a href="{{route('register-page')}}" class="text-xs text-gray-600 hover:underline hover:text-blue-600">Don't have account yet?</a>
+            <a href="{{route('forgot-password-page')}}" class="text-xs text-gray-600 hover:underline hover:text-primary">Lupa password?</a>
             <div>
                 <button class="btn btn-primary">Login</button>
+                <a href="{{route('register-page')}}" class="btn btn-outline">Register</a>
             </div>
         </form>
     </div>

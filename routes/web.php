@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyEventController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\RegisterController;
 use App\Models\Event;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\RsvpController;
 use Illuminate\Routing\RouteGroup;
 use App\Models\Category;
@@ -71,6 +73,14 @@ Route::prefix('auth')->group(function () {
     // Route yang mengirimkan data register user dari laman register pada method store
     Route::post('register', [RegisterController::class, 'store'])->name('register');    
 });
+
+// Route yang mengatur forgot password
+Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->middleware('guest')->name('forgot-password-page');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->middleware('guest')->name('forgot-password');
+
+// Route yang mengatur reset password
+Route::get('/reset-password/{token}', [ResetPasswordController::class,'index'])->middleware('guest')->name('password.reset');
+Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->middleware('guest')->name('password.update');
 
 // Route yang mengarah ke halaman posts event dengan nama posts dan controller PostController
 Route::get('posts', [PostController::class, 'index'])->name('posts-page');

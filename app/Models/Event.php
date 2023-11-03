@@ -9,22 +9,7 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name', 
-        'description', 
-        'body', 
-        'slug', 
-        'published_at',
-        'image',
-        'link',
-        'is_published',
-        'is_online',
-        'user_id',
-        'category_id',
-        'start_date',
-        'end_date',
-        'embed',
-    ];
+    protected $guarded = ['id'];
 
     // Create relationship with User
     public function user()

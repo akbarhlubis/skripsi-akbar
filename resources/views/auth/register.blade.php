@@ -3,7 +3,7 @@
 @section('container')
 <div class="relative flex flex-col justify-center h-screen overflow-hidden">
     <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 class="text-3xl font-black text-center uppercase text-primary">Selamat datang di halaman Login</h1>
+        <h1 class="text-2xl font-black text-center uppercase">Selamat datang di halaman Login</h1>
         <form id="FormRegister" action="/auth/register" method="POST" x-data="{
             formStep: 1,
             name: '',
@@ -52,7 +52,7 @@
                 <label class="label">
                     <span class="text-base label-text">Name</span>
                 </label>
-                <input type="text" required x-model="name" placeholder="Nama Lengkap" name="name" id="name" class="w-full input input-bordered input-primary @error('name')
+                <input type="text" required x-model="name" placeholder="Nama Lengkap" name="name" id="name" class="w-full input input-bordered @error('name')
                     outline-none ring-2 ring-primary
                 @enderror" />
                 <label class="font-bold text-primary form-label" for="name" x-text="errors.name"></label>
@@ -61,14 +61,14 @@
                 <label class="label">
                     <span class="text-base label-text">Email</span>
                 </label>
-                <input type="email" placeholder="alamat@email.com" x-model="email" name="email" id="email" class="w-full input input-bordered input-primary" />
+                <input type="email" placeholder="alamat@email.com" x-model="email" name="email" id="email" class="w-full input input-bordered" />
                 <label class="font-bold text-primary form-label" for="email" x-text="errors.email"></label>
             </div>
             <div x-cloak x-show="formStep === 3">
                 <label class="label">
                     <span class="text-base label-text">Password</span>
                 </label>
-                <input type="password" name="password" x-model="password" id="password" placeholder="Masukan password" class="w-full input input-bordered input-primary" />
+                <input type="password" name="password" x-model="password" id="password" placeholder="Masukan password" class="w-full input input-bordered" />
                 <label class="form-label" for="password" x-text="errors.password"></label>
             </div>
             {{-- Button Back with Alpine JS --}}
@@ -97,7 +97,7 @@
                 Register</button>
             </div>
             <span class="pt-2">Sudah punya akun?
-                <a href="#" class="text-primary hover:text-primary-focus hover:underline">Login disini</a>
+                <a href="{{route('login-page')}}" class="text-primary hover:text-primary-focus hover:underline">Login disini</a>
             </span>
         </form>
     </div>

@@ -92,9 +92,16 @@ class EventController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'quota' => 'required|numeric',
             'description' => ['required', 'min:10'],
             'body' => ['required', 'min:10'],
-            'slug' => ['required',],
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'slug' => ['required', 'unique:events,slug,' . $event->id],
+            'image' => ['image', 'max:2048'],
+            'category_id' => 'required',
+            'link' => 'max:500',
+            'embed' => 'max:500',
         ]);
 
         $event->update($request->all());

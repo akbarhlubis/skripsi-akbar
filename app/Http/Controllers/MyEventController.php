@@ -15,6 +15,8 @@ class MyEventController extends Controller
         $events = Event::with('registrations')->whereHas('registrations', function ($q) {
             $q->where('user_id', auth()->id());
         })->get();
-        return view('my-events', compact('events'));
+        $registrations = $events->count();
+
+        return view('my-events', compact('events','registrations'));
     }
 }
