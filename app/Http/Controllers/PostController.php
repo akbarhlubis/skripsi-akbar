@@ -14,7 +14,8 @@ class PostController extends Controller
         // Return view posts
         return view('posts',[
             // Variable events with paginate 6 where is_published is true
-            'events' => Event::with(['category','user'])->where('is_published', true)->latest()->paginate(6)
+            'events' => Event::with(['category','user'])->where('is_published', true)->latest()->paginate(6),
+            'categories' => \App\Models\Category::all(),
     ]);
     }
 

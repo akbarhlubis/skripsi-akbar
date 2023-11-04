@@ -49,7 +49,7 @@ class EventController extends Controller
             'category_id' => 'required',
             'link' => 'max:500',
             'embed' => 'max:500',
-            'quota' => 'required|numeric',
+            'quota' => 'numeric',
         ]);
 
         if ($request->file('image')) {
@@ -92,7 +92,7 @@ class EventController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'quota' => 'required|numeric',
+            'quota' => 'numeric',
             'description' => ['required', 'min:10'],
             'body' => ['required', 'min:10'],
             'start_date' => 'required',
@@ -103,6 +103,10 @@ class EventController extends Controller
             'link' => 'max:500',
             'embed' => 'max:500',
         ]);
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('event-images');
+        }
 
         $event->update($request->all());
 

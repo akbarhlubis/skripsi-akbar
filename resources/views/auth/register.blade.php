@@ -3,7 +3,7 @@
 @section('container')
 <div class="relative flex flex-col justify-center h-screen overflow-hidden">
     <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 class="text-2xl font-black text-center uppercase">Selamat datang di halaman Login</h1>
+        <h1 class="text-2xl font-black text-center uppercase">Buat Akun Anda</h1>
         <form id="FormRegister" action="/auth/register" method="POST" x-data="{
             formStep: 1,
             name: '',

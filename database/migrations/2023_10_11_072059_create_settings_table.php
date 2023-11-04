@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             // create table for website settings such as title, description, etc.
             $table->id();
+            $table->string('description')->nullable();
+            // social media
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            
         });
     }
 

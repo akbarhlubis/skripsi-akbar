@@ -81,7 +81,7 @@
 </div>
 
 {{-- Bottom Navigation --}}
-<div class="z-50 mt-4 btm-nav md:hidden dark:bg-slate-950 dark:text-white">
+<div class="z-50 mt-10 btm-nav md:hidden dark:bg-slate-950 dark:text-white">
     <a class="{{ request()->is('/') ? 'active' : '' }}" href="{{ route('home-page') }}">
         <i class="bi bi-house dark:text-primary"></i>
     </a>

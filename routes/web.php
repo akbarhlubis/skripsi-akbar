@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ use App\Http\Controllers\RsvpController;
 use Illuminate\Routing\RouteGroup;
 use App\Models\Category;
 use App\Models\Registration;
+use App\Models\Setting;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,7 @@ Route::get('/', function () {
         'events' => Event::published()->latest()->limit(3)->get(),
         'categories' => Category::latest()->limit(6)->get(),
         'registrations' => Registration::latest()->limit(6)->get(),
+        'setting' => Setting::findOrFail(1),
     ]);
 })->name('home-page');
 
@@ -161,9 +164,8 @@ Route::group(['middleware' => ['auth']], function () {
         });
 
         // Route yang mengarah ke halaman setting
-        Route::get('/setting', function () {
-            return view('admin.setting');
-        })->name('admin-setting-page');
+        Route::get('/setting', [SettingController::class,'index'])->name('admin-setting-page');
+        Route::put('/setting', [SettingController::class,'update'])->name('setting.update');
     });
     
 });

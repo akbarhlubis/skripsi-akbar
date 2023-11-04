@@ -24,9 +24,9 @@
                     <select name="category" id="category"
                         class="w-full h-12 px-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
                         <option value="all">Semua Kategori</option>
-                        <option value="workshop">Workshop</option>
-                        <option value="seminar">Seminar</option>
-                        <option value="meetup">Meetup</option>
+                        @foreach ($categories as $category)
+                        <option value="{{$category->name}}">{{$category->name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="flex flex-col gap-2">
