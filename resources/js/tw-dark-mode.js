@@ -7,14 +7,14 @@ window.onscroll = function () {
     const fixedNav = header.offsetTop;
 
     if (window.scrollY > fixedNav) {
-        header.classList.add("backdrop-blur-md","shadow-sm");
+        header.classList.add("backdrop-blur-md","shadow-lg");
         fab.classList.remove("invisible");
         header.style.transition = "all 0.2s ease";
         fab.style.transition = "all 0.2s ease";
     }
     else{
         fab.classList.add("invisible");
-        header.classList.remove("backdrop-blur-md","shadow-sm");
+        header.classList.remove("backdrop-blur-md","shadow-lg");
         header.style.transition = "all 0.2s ease";
         fab.style.transition = "all 0.2s ease";
     }
