@@ -1,4 +1,4 @@
-<div class="fixed z-50 flex flex-row items-center justify-between w-full px-2 shadow-sm md:px-16 bg-opacity-40 backdrop-blur-md">
+<div class="fixed z-50 flex flex-row items-center justify-between w-full px-2 head-part md:px-16 bg-opacity-40">
     <div class="px-2 py-2 scale-75 rounded-md dark:bg-white">
         <a href="{{ route('home-page') }}">
             <img src="{{ asset('Logo.png') }}" alt="" srcset="">
