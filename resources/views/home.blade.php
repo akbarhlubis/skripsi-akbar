@@ -14,10 +14,13 @@
         <div class="hidden w-1/2 md:block right-hero gradient-mask-l-90">
             <div class="overflow-hidden rounded-md gradient-mask-r-90">
                 <div class="flex justify-around gap-10 py-12 animate-marquee whitespace-nowrap">
-                    @foreach ($events as $event)
+                    @forelse ($events as $event)
                     <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{ asset('storage/' . $event->image) }}" alt="">
                     <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{ asset('storage/' . $event->image) }}" alt="">
-                    @endforeach
+                    @empty
+                    <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{asset('default-image.jpg')}}" alt="">
+                    <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{asset('default-image.jpg')}}" alt="">
+                    @endforelse
                 </div>
             </div>
         </div>

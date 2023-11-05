@@ -18,8 +18,8 @@
                 <h1>Kuota: {{ $registrations ?? '' }}/{{ $event->quota }} Peserta</h1>
             @endif
             <span class="pt-2 font-semibold">
-                <h1>Mulai: {{ $event->start_date }}</h1>
-                <h1>Berakhir: {{ $event->end_date }}</h1>
+                <h1>Mulai: {{ date('d-m-Y | H:i:s', strtotime($event->start_date)) }}</h1>
+                <h1>Berakhir: {{ date('d-m-Y | H:i:s', strtotime($event->end_date)) }}</h1>
             </span>
         </div>
         @if ($event->link)
@@ -45,8 +45,8 @@
                 <button @click="copyToClipboard" class="p-2 ml-2 text-white bg-blue-500 rounded">Copy</button>
             </div> --}}
             <add-to-calendar-button name="{{ $event->name }}" description="{{ $event->description }}"
-                startDate="2023-10-07" startTime="10:15" endTime="17:45" timeZone="Asia/Jakarta"
-                location="World Wide Web" options="'Google','iCal'"></add-to-calendar-button>
+                startDate="{{ date('Y-m-d', strtotime($event->start_date)) }}" endDate="{{ date('Y-m-d', strtotime($event->end_date)) }}" startTime="{{ date('H:i:s', strtotime($event->start_date)) }}" endTime="{{ date('H:i:s', strtotime($event->end_date)) }}" timeZone="Asia/Jakarta"
+                location="World Wide Web" options="'Apple','Google','iCal','Yahoo','Microsoft365'"></add-to-calendar-button>
         </div>
     </div>
 </div>
