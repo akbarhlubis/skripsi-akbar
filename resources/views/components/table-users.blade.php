@@ -41,13 +41,19 @@
                     </span>
                 </td>
                 <td class="px-6 py-3 text-left">
-                    <span class="text-xs font-medium leading-4 tracking-wider">
-                        Tandai hadir | Hapus
-                    </span>
+                    <a href="{{route('event.is-attend',['event' => $event->id, 'user_id' => $regis->user->id])}}" class="text-xs font-medium leading-4 tracking-wider">
+                        {{ $regis->is_attended ? 'Menghadiri' : 'Tandai Hadir' }}
+                    </a>
+                    | 
+                    <a href="{{route('event.del-attend', ['event' => $event, 'user_id' => $regis->user->id])}}" class="text-xs font-medium leading-4 tracking-wider text-red-500">
+                        Hapus
+                    </a>
                 </td>
             @empty
                 <td class="px-6 py-4 text-sm leading-5 text-gray-900 truncate whitespace-no-wrap">
-                    Kosong
+                    <div class="text-lg text-center">
+                        Kosong
+                    </div>
                 </td>
             </tr>
         @endforelse

@@ -7,8 +7,8 @@
         <div class="flex flex-col items-end w-full gap-4 mb-4">
             {{-- Add User --}}
             {{-- search field --}}
-            <form action="{{ route('event.search') }}" method="GET" class="flex flex-col w-full gap-2 md:flex-row">
-                <input type="text" name="search" class="w-full px-2 py-2 bg-white rounded-md text-slate-900 " placeholder="Search">
+            <form action="{{ route('event.index') }}" class="flex flex-col w-full gap-2 md:flex-row">
+                <input type="text" value="{{request('search')}}" name="search" class="w-full px-2 py-2 bg-white rounded-md text-slate-900 " placeholder="Search">
                 <a href="{{ route('event.create') }}" class="w-full px-2 py-2 text-center text-white rounded-md md:w-1/5 bg-slate-900">Tambah Event</a>
                 <a href="{{ route('event.index') }}" class="w-full px-2 py-2 text-center rounded-md text-slate-900 md:w-1/5 outline outline-slate-900 outline-1">Refresh</a>
             </form>

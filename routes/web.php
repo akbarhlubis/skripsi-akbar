@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\RegistrationController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -133,8 +134,10 @@ Route::group(['middleware' => ['auth']], function () {
             // Show event by id
             Route::get('/{event}', [EventController::class, 'show'])->name('show');
             Route::put('/{event}', [EventController::class, 'update'])->name('update');
-            Route::get('/{event}/attend/{user_id}', [EventController::class, 'delete_attend'])->name('del-attend');
-            Route::get('/{event}/attend/{user_id}/attend', [EventController::class, 'attend_status'])->name('is-attend');
+            
+            Route::get('/{event}/attend/{user_id}', [RegistrationController::class, 'delete_attend'])->name('del-attend');
+            Route::get('/{event}/attend/{user_id}/attend', [RegistrationController::class, 'attend_status'])->name('is-attend');
+            Route::get('/export/excel/{event_id}', [RegistrationController::class,'export'])->name('export.excel');
         });
 
         // Route yang mengarah ke halaman category

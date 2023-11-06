@@ -8,7 +8,7 @@
             {{-- Add User --}}
             {{-- search field --}}
             <form action="{{ route('users.search') }}" method="GET" class="flex flex-col w-full gap-2 md:flex-row">
-                <input type="text" name="search" class="w-full px-2 py-2 bg-white rounded-md text-slate-900 " placeholder="Search">
+                <input type="text" name="search" class="w-full px-2 py-2 bg-white rounded-md text-slate-900 " placeholder="Cari Akun">
                 <a href="{{ route('users.create') }}" class="w-full px-2 py-2 text-center text-white rounded-md md:w-1/5 bg-slate-900">Tambah User</a>
                 <a href="{{ route('users.index') }}" class="w-full px-2 py-2 text-center rounded-md text-slate-900 md:w-1/5 outline outline-slate-900 outline-1">Refresh</a>
             </form>

@@ -58,4 +58,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Registration::class);
     }
+
+    // Create relationship with Contact
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
 }

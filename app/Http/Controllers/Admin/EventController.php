@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Registration;
 use Illuminate\Http\Request;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 
@@ -15,11 +16,14 @@ class EventController extends Controller
      */
     public function index()
     {
+        $events = Event::latest()->paginate(10);
+        $title = 'Event';
+        
+        if (request('search')){
+            $events = Event::where('name', 'like', "%" . request('search') . "%")->paginate(15);
+        }
         // Mengambil semua data event
-        return view('admin.event.index', [
-            'title' => 'Event',
-            'events' => Event::latest()->paginate(10)
-        ]);
+        return view('admin.event.index', compact('events', 'title'));
         
     }
 
@@ -119,7 +123,7 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        $events = $event->delete();
+        $event->delete();
         return back()->with('success', 'Event deleted successfully.');
     }
     /**
@@ -127,10 +131,6 @@ class EventController extends Controller
      * @param \App\Models\Event $event
      * @return void
      */
-    public function search(Request $request)
-    {
-        
-    }
 
     public function status (Event $event)
     {

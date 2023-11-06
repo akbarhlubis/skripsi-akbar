@@ -14,7 +14,7 @@
         <div class="flex flex-col mt-5">
             <h1 class="text-3xl font-bold">{{ $event->name }}</h1>
             <h1>{{ $event->published_at }}</h1>
-            @if ($event->quota > 0)
+            @if ($event->link == null)
                 <h1>Kuota: {{ $registrations ?? '' }}/{{ $event->quota }} Peserta</h1>
             @endif
             <span class="pt-2 font-semibold">
