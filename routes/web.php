@@ -15,6 +15,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\RsvpController;
+use App\Http\Controllers\ScanController;
 use Illuminate\Routing\RouteGroup;
 use App\Models\Category;
 use App\Models\Registration;
@@ -89,11 +90,15 @@ Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->middl
 Route::get('posts', [PostController::class, 'index'])->name('posts-page');
 // Route yang mengarah ke halaman post event dengan id post dan controller PostController
 Route::get('posts/{id}', [PostController::class, 'show'])->name('post-page');
+
 Route::get('/events-rsvp/{id}', RsvpController::class)->name('rsvp')->middleware('auth');
+
 // route for scan barcode
 Route::get('/scan', function () {
     return view('scan');
 })->name('scan-page')->middleware('auth');
+Route::post('/scan/', [ScanController::class, 'scan'])->name('scan')->middleware('auth');
+
 // Group route yang membutuhkan auth
 Route::group(['middleware' => ['auth']], function () {
 
@@ -128,10 +133,8 @@ Route::group(['middleware' => ['auth']], function () {
             // Show event by id
             Route::get('/{event}', [EventController::class, 'show'])->name('show');
             Route::put('/{event}', [EventController::class, 'update'])->name('update');
-            
-            
-            // route for search
-            Route::get('/search', [EventController::class, 'search'])->name('search');
+            Route::get('/{event}/attend/{user_id}', [EventController::class, 'delete_attend'])->name('del-attend');
+            Route::get('/{event}/attend/{user_id}/attend', [EventController::class, 'attend_status'])->name('is-attend');
         });
 
         // Route yang mengarah ke halaman category
