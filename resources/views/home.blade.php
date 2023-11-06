@@ -16,7 +16,11 @@
                 <div class="flex justify-around gap-10 py-12 animate-marquee whitespace-nowrap">
                     @forelse ($events as $event)
                     <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{ asset('storage/' . $event->image) }}" alt="">
-                    <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{ asset('storage/' . $event->image) }}" alt="">
+                    {{-- <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{ asset('storage/' . $event->image) }}" alt=""> --}}
+                    <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="https://kemahasiswaan.teknokrat.ac.id/wp-content/uploads/2023/03/Bunga-Mutiara-170323.jpg" alt="">
+                    <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="https://kemahasiswaan.teknokrat.ac.id/wp-content/uploads/2023/03/teknokrat_university-13-03-2023-0002.jpg" alt="">
+                    <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="https://kemahasiswaan.teknokrat.ac.id/wp-content/uploads/2022/07/rsz_ids02060.jpg" alt="">
+                    <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="https://kemahasiswaan.teknokrat.ac.id/wp-content/uploads/2023/03/Bunga-Mutiara-170323.jpg" alt="">
                     @empty
                     <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{asset('default-image.jpg')}}" alt="">
                     <img class="object-cover w-1/2 transition-all rounded-lg hover:filter-none grayscale hover:scale-105" src="{{asset('default-image.jpg')}}" alt="">
