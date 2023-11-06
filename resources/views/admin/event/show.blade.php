@@ -70,7 +70,7 @@
                                     <ul tabindex="0"
                                         class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                                         <li><a href="{{route('event.export.excel',$event)}}">Export EXCEL</a></li>
-                                        <li><a href="#">Export PDF</a></li>
+                                        {{-- <li><a href="#">Export PDF</a></li> --}}
                                     </ul>
                                 </div>
                             </div>
