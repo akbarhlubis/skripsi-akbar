@@ -38,9 +38,6 @@
         <div class="py-6 text-base font-semibold transition-all md:text-lg hover:scale-110">
             {{$categories->count()}}+ Kategori
         </div>
-        <div class="py-6 text-base font-semibold transition-all md:text-lg hover:scale-110">
-            {{$registrations->count()}}+ Pendaftar
-        </div>
     </div>
     {{-- Event Card Section --}}
     <div class="container px-10 mx-auto dark:text-white">

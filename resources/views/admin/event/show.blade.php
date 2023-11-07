@@ -11,28 +11,20 @@
             @endif
             <div class="w-1/2 p-4 bg-white">
                 <form class="gap-2 form-control">
-                    <input type="text" name="name" value="{{ $event->name }}">
-                    <input type="text" name="description" value="{{ $event->description }}">
-                    <input type="text" name="published_at" value="{{ $event->slug }}">
-                    {{-- Input is published --}}
-                    <div class="flex gap-2">
-                        <input type="radio" name="is_published" id="published" value="1"
-                            {{ $event->is_published ? 'checked' : '' }}>
-                        <label for="published">Published</label>
-                        <input type="radio" name="is_published" id="draft" value="0"
-                            {{ $event->is_published ? '' : 'checked' }}>
-                        <label for="draft">Draft</label>
-                    </div>
-
+                    <input disabled type="text" name="name" value="{{ $event->name }}">
+                    <input disabled type="text" name="description" value="{{ $event->description }}">
+                    <input disabled type="text" name="published_at" value="{{ $event->slug }}">
+                    
+                    <p class="p-2 rounded-md text-center font-bold {{$event->is_published ? 'text-green-500 bg-green-100' : 'text-red-500 bg-red-100'}}">{{ $event->is_published ? 'Published' : 'Draft' }}</p>
                     {{-- Start date and End date inside div --}}
                     <div class="flex gap-2">
                         <div class="flex flex-col w-full gap-2">
                             <label for="start_date">Start Date</label>
-                            <input type="datetime-local" name="start_date" id="start_date" value="{{ $event->start_date }}">
+                            <input disabled type="datetime-local" name="start_date" id="start_date" value="{{ $event->start_date }}">
                         </div>
                         <div class="flex flex-col w-full gap-2">
                             <label for="end_date">End Date</label>
-                            <input type="datetime-local" name="end_date" id="end_date" value="{{ $event->end_date }}">
+                            <input disabled type="datetime-local" name="end_date" id="end_date" value="{{ $event->end_date }}">
                         </div>
                     </div>
                     <a class="px-2 py-2 text-center text-white rounded-md bg-slate-900"

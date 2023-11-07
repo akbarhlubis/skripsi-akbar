@@ -10,5 +10,5 @@ class Setting extends Model
     use HasFactory;
     
     // Guarded
-    protected $guarder = ['id', 'description'];
+    protected $guarded = ['id'];
 }

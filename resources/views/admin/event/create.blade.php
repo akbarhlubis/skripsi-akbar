@@ -27,15 +27,15 @@
                             </div>
                         </div>
                         {{-- Alpine checkbox toggle show --}}
-                        <div class="flex flex-col gap-2" x-data="{ show: false }">
-                            <label for="name" class="block">Embed Form?</label>
+                        <div class="flex flex-col gap-2 py-2" x-data="{ show: false }">
+                            <label for="name" class="block">Sematkan Form?</label>
                             <button type="button" @click="show = !show"
-                                class="w-1/3 px-4 py-2 text-white bg-blue-500 rounded-lg">Tampilkan</button>
+                                class="w-1/4 px-4 py-2 text-white bg-blue-500 rounded-lg">Tampilkan</button>
                             <input x-show="show" type="url" id="link" name="link"
-                                placeholder="Inputkan Link Form atau Pendaftaran (link harus tanpa opsi upload file/gambar)"
+                                placeholder="Link Form atau Pendaftaran (Google Form, Typeform, dll))"
                                 name="link" class="block w-full mb-4 rounded-md" value="{{ old('link') }}">
                             <input x-show="show" type="url" id="embed" name="embed"
-                            placeholder="Inputkan Link Form atau Pendaftaran (link harus tanpa opsi upload file/gambar)"
+                            placeholder="Link SpreadSheet (Google Sheet, dll))"
                             name="embed" class="block w-full mb-4 rounded-md" value="{{ old('embed') }}">
                         </div>
 

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('youtube')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            // end social media
+            $table->timestamps();
             
         });
     }

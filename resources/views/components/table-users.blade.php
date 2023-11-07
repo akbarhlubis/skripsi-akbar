@@ -41,10 +41,9 @@
                     </span>
                 </td> --}}
                 <td class="px-6 py-3 text-left">
-                    <a href="{{route('event.is-attend',['event' => $event->id, 'user_id' => $regis->user->id])}}" class="text-xs font-medium leading-4 tracking-wider">
+                    <a href="{{route('event.is-attend',['event' => $event->id, 'user_id' => $regis->user->id])}}" class="text-xs font-medium p-2 mr-2 rounded-lg hover:bg-green-500 {{ $regis->is_attended ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
                         {{ $regis->is_attended ? 'Menghadiri' : 'Tandai Hadir' }}
-                    </a>
-                    | 
+                    </a> 
                     <a href="{{route('event.del-attend', ['event' => $event, 'user_id' => $regis->user->id])}}" class="text-xs font-medium leading-4 tracking-wider text-red-500">
                         Hapus
                     </a>

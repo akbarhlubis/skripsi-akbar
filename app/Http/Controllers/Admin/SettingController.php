@@ -18,10 +18,18 @@ class SettingController extends Controller
     }
 
     public function update(Request $request){
-        // dd($request->all());
-        $setting = Setting::findOrFail(1);
-        $setting->save( $request->all() );
+        $validatedData = $request->validate([
+            'description' => ['required', 'min:10'],
+            'facebook' => 'max:200',
+            'instagram' => 'max:200',
+            'youtube' => 'max:200',
+            'phone' => 'max:200',
+            'email' => 'max:200',
+        ]);
 
-        return redirect()->back()->with('success','Pengaturan berhasil diubah!');
+        Setting::where('id', 1)
+            ->update($validatedData);
+
+        return back()->with('success', 'Pengaturan berhasil diperbarui');
     }
 }
