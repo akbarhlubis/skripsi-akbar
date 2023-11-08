@@ -35,8 +35,8 @@ class RegistrationExport implements FromQuery,WithMapping,WithHeadings
         return [
             'Name',
             'Email',
-            'Event',
-            'Quota',
+            'Nama Event',
+            'Kehadiran (Ya/Tidak)',
         ];
     }
     public function map($registration): array
@@ -45,7 +45,7 @@ class RegistrationExport implements FromQuery,WithMapping,WithHeadings
             $registration->user->name,
             $registration->user->email,
             $registration->event->name,
-            $registration->event->quota,
+            $registration->is_attended ? 'Ya' : 'Tidak',
         ];
     }
 }

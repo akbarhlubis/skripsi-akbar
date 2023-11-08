@@ -12,12 +12,12 @@
         <div class="w-full mx-auto">
             <h1 class="text-3xl font-black">Event Saya</h1>
             <div class="mt-5 tabs">
-                <a class="w-3/6 font-bold tab tab-bordered tab-active">Mendatang</a>
-                <a class="w-3/6 tab tab-bordered">Selesai</a>
+                {{-- <a class="w-3/6 font-bold tab tab-bordered tab-active">Mendatang</a>
+                <a class="w-3/6 tab tab-bordered">Selesai</a> --}}
+                @foreach ($events as $event)
+                    @include('components.header-event')
+                @endforeach
             </div>
         </div>
-        @foreach ($events as $event)
-            @include('components.header-event')
-        @endforeach
     </div>
 @endsection

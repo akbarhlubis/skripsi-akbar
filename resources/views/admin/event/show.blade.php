@@ -29,9 +29,14 @@
                     </div>
                     <a class="px-2 py-2 text-center text-white rounded-md bg-slate-900"
                         href="{{ route('event.edit', $event) }}">Edit Data</a>
-                </form>
+                    </form>
+                    <div class="grid grid-flow-col mx-auto mt-4">
+                        <div class="w-full text-sm font-bold">Total Peserta: {{app\Models\Registration::where('event_id',$event->id)->count()}}</div>
+                        <div class="w-full text-sm font-bold">Peserta Hadir: {{app\Models\Registration::where('event_id',$event->id)->where('is_attended',true)->count()}}</div>
+                        <div class="w-full text-sm font-bold">Peserta Belum Hadir: {{app\Models\Registration::where('event_id',$event->id)->where('is_attended',false)->count()}}</div>
+                    </div>
+                </div>
             </div>
-        </div>
         {{-- if link is not null then show below --}}
         @empty($event->link)
             <div class="mt-2 overflow-x-scroll bg-white rounded-md" x-data="{ activeTab: 'regisform' }">
