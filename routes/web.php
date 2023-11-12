@@ -90,7 +90,7 @@ Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->middl
 // Route yang mengarah ke halaman posts event dengan nama posts dan controller PostController
 Route::get('posts', [PostController::class, 'index'])->name('posts-page');
 // Route yang mengarah ke halaman post event dengan id post dan controller PostController
-Route::get('posts/{id}', [PostController::class, 'show'])->name('post-page');
+Route::get('posts/{id:slug}', [PostController::class, 'show'])->name('post-page');
 
 Route::get('/events-rsvp/{id}', RsvpController::class)->name('rsvp')->middleware('auth');
 

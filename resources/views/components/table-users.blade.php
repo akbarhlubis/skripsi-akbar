@@ -10,6 +10,9 @@
                 <span class="text-xs font-medium leading-4 tracking-wider text-gray-500 uppercase">Alamat
                     Email</span>
             </th>
+            <th class="px-6 py-3 text-left bg-gray-50">
+                <span class="text-xs font-medium leading-4 tracking-wider text-gray-500 uppercase">Ditambahkan Pada</span>
+            </th>
             {{-- <th class="px-6 py-3 text-left bg-gray-50">
                 <span class="text-xs font-medium leading-4 tracking-wider text-gray-500 uppercase">
                     Kode Barcode</span>
@@ -31,6 +34,11 @@
                 <td class="px-6 py-3 text-left">
                     <span class="text-xs font-medium leading-4 tracking-wider">
                         {{ $regis->user->email }}
+                    </span>
+                </td>
+                <td class="px-6 py-3 text-left">
+                    <span class="text-xs font-medium leading-4 tracking-wider">
+                        {{ $regis->created_at->format('d M Y, H:i:s') }}
                     </span>
                 </td>
                 {{-- <td class="px-6 py-3 text-left">

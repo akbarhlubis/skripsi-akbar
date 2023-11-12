@@ -33,6 +33,7 @@ class RegistrationExport implements FromQuery,WithMapping,WithHeadings
     public function headings(): array
     {
         return [
+            'Timestamp',
             'Name',
             'Email',
             'Nama Event',
@@ -42,6 +43,7 @@ class RegistrationExport implements FromQuery,WithMapping,WithHeadings
     public function map($registration): array
     {
         return [
+            $registration->created_at->format('d M Y, H:i:s'),
             $registration->user->name,
             $registration->user->email,
             $registration->event->name,

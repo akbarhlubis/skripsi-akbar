@@ -11,7 +11,7 @@
         <p class="text-sm truncate lg:text-base dark:text-white">{{ $event->description }}</p>
         <p class="text-sm truncate lg:text-base dark:text-white">{{ $event->created_at->diffForHumans() }}</p>
         <div class="card-actions">
-            <a class="text-sm btn btn-primary lg:text-base" href="{{ route('post-page', ['id' => $event->id]) }}">Lihat
+            <a class="text-sm btn btn-primary lg:text-base" href="{{ route('post-page', ['id' => $event->slug]) }}">Lihat
                 Detail
             </a>
         </div>

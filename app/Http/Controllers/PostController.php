@@ -29,9 +29,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Event $id)
     {
-        $event = Event::findOrFail($id);
+        $event = $id;
         $registrations = $event->registrations()->with((['user', 'event']))->count();
 
         return view('post')->with([
