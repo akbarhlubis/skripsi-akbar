@@ -102,12 +102,14 @@
         </form>
     </div>
 </div>
+@push('custom-scripts')
 <script>
-      const form = document.getElementById('FormRegister');
-  form.addEventListener('keypress', function(e) {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-    }
-  });
+    const form = document.getElementById('FormRegister');
+form.addEventListener('keypress', function(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+  }
+});
 </script>
+@endpush
 @endsection

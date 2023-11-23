@@ -97,14 +97,7 @@
             </div>
         </div>
     </div>
-    <script>
-        const name = document.querySelector('#name');
-        const slug = document.querySelector('#slug');
-
-        name.addEventListener("keyup", function() {
-            let preslug = name.value;
-            preslug = preslug.replace(/ /g, "-");
-            slug.value = preslug.toLowerCase();
-        });
-    </script>
+    @push('custom-scripts-admin')
+        @vite('resources/js/additional-post-script.js')
+    @endpush
 @endsection

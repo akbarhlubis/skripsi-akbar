@@ -73,5 +73,7 @@
             </div>
         </div>
     </div>
+    @push('custom-scripts-admin')
     @vite('resources/js/additional-post-script.js')
+    @endpush
 @endsection

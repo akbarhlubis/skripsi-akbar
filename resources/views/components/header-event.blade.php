@@ -7,10 +7,17 @@
         <img class="w-full bg-contain lg:w-1/2" src="{{ asset('default-image.jpg') }}" alt="{{$event->name}}">
     @endif
     <div class="flex flex-col justify-between w-full px-4 py-5 lg:w-1/2">
+        @isset ($event->category->name)
         <div class="mt-3 h-fit">
-            <span
-                class="p-2 text-sm rounded-sm shadow-sm outline outline-1 outline-gray-500">{{ $event->category->name }}</span>
+            <span class="p-2 text-sm rounded-sm shadow-sm outline outline-1 outline-gray-500">{{ $event->category->name }}</span>
         </div>
+        @endisset
+
+        @empty ($event->category->name)
+        <div class="mt-3 h-fit">
+            <span class="p-2 text-sm rounded-sm shadow-sm outline outline-1 outline-gray-500">Uncategorized</span>
+        </div>
+        @endempty
         <div class="flex flex-col mt-5">
             <h1 class="text-3xl font-bold">{{ $event->name }}</h1>
             <h1>{{ $event->published_at }}</h1>

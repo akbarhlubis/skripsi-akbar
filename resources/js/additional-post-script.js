@@ -3,7 +3,8 @@ const slug = document.querySelector('#slug');
 
 name.addEventListener("keyup", function() {
     let preslug = name.value;
-    preslug = preslug.replace(/ /g, "-");
+    // Replace spaces and non word characters with a dash
+    preslug = preslug.replace(/\s+/g, '-').replace(/[^\w-]+/g, '-');
     slug.value = preslug.toLowerCase();
 });
 

@@ -33,5 +33,6 @@
     <a href="#" class="fixed bottom-0 right-0 z-50 invisible mb-24 mr-4 text-white fab md:mb-6">
         <i class="p-4 rounded-full bi bi-chevron-double-up bg-primary hover:bg-red-400"></i>
     </a>
+    @stack('custom-scripts')
 </body>
 </html>

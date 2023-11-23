@@ -1,26 +1,27 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\EventController;
-use App\Http\Controllers\Admin\RegistrationController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\ForgotPasswordController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MyEventController;
-use App\Http\Controllers\RegisterController;
 use App\Models\Event;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\RsvpController;
-use App\Http\Controllers\ScanController;
-use Illuminate\Routing\RouteGroup;
+use App\Models\Setting;
 use App\Models\Category;
 use App\Models\Registration;
-use App\Models\Setting;
+use Illuminate\Http\Request;
+use Illuminate\Routing\RouteGroup;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RsvpController;
+use App\Http\Controllers\ScanController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MyEventController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +48,22 @@ Route::get('/test', function () {
     return view('test');
 })->name('test-page');
 
+Route::get('/search', function (Request $request) {
+    $query = $request->query('q');
+
+    $events = Event::query()
+    // search by name or category
+        ->where('name', 'like', "%$query%")
+        ->orWhere('description', 'like', "%$query%")
+        ->get();
+    return response()->json($events);
+});
+
 // Route yang mengarah ke halaman home
 Route::get('/', function () {
     return view('home', [
         // Limit only 3 events
-        'events' => Event::published()->latest()->limit(3)->get(),
+        'events' => Event::published()->latest()->limit(6)->get(),
         'categories' => Category::latest()->limit(6)->get(),
         'registrations' => Registration::latest()->limit(6)->get(),
         'setting' => Setting::findOrFail(1),
