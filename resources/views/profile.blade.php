@@ -43,6 +43,7 @@
                         </form>
                     </div>
                 </div>
+                @role('user')
                 <div class="p-6 mt-4 overflow-hidden bg-white shadow-sm sm:rounded-lg outline outline-1 outline-gray-300">
                     <h1 class="text-lg">Hapus Akun</h1>
                     <p class="text-sm text-slate-500">Akun anda akan dihapus secara permanen dan seluruh data yang tersimpan disistem akan dihapus</p>
@@ -65,6 +66,7 @@
                         </div>
                     </dialog>
                 </div>
+                @endrole
             </div>
         </div>
     </div>

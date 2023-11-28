@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Event Management System | UTI</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script defer src="https://unpkg.com/alpinejs@latest/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
@@ -33,6 +34,10 @@
     <a href="#" class="fixed bottom-0 right-0 z-50 invisible mb-24 mr-4 text-white fab md:mb-6">
         <i class="p-4 rounded-full bi bi-chevron-double-up bg-primary hover:bg-red-400"></i>
     </a>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     @stack('custom-scripts')
 </body>
 </html>
