@@ -34,7 +34,7 @@ class PostController extends Controller
         $event = $id;
         $registrations = $event->registrations()->with((['user', 'event']))->count();
         
-        if ($event->is_published =! true) {
+        if ($event->is_published == false) {
             abort(403, 'Access denied');
         }
         
